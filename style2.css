@@ -1,0 +1,121 @@
+body { 
+    background-color: rgb(19, 19, 19);
+    text-align: center;
+    color: darkred;
+}
+
+@keyframes misturando {
+    0% {
+        color:black;
+    }
+    50% {
+        color: red;
+    }
+    100% {
+        color: black;
+    }
+}
+
+.bt1 {
+    text-align: center;
+    display: block;
+    margin-top: 5%;
+    font-size: 15px;
+    margin-left: 12%;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(134, 0, 0);
+    background-position: center;
+    position: fixed;
+}
+
+.bt2 {
+    display: block;
+    margin-top: 10px;
+    color:white;
+    margin-top: 5%;
+    font-size: 15px;
+    margin-left: 75%;
+    padding: 20px;  
+    background: linear-gradient(to left, black, gray);
+    background-position: center;
+    position: fixed;
+}
+
+.bt3 {
+    color: white;
+    background-color: rgb(123, 72, 241);
+    display: block;
+    margin-top: 10%;
+    font-size: 15px;
+    margin-left: 42%;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    background-position: center;
+    border-radius: 20%;
+    animation: mst 2s infinite;
+    position: fixed;
+}
+
+.bt4 {
+    color: white;
+    background-color: rgb(241, 72, 72);
+    display: block;
+    margin-top: 10%;
+    font-size: 15px;
+    margin-left: 50%;
+    padding: 20px;  
+    background-size: cover;
+    background-position: center;
+    background-position: center;
+    border-radius: 20%;
+    animation: mst2 2s infinite;
+    position: fixed;
+}
+
+.hw2 {
+    width: 30%;
+    margin-top: 16%;
+    position: fixed;
+}
+
+.hw3 {
+    width: 30%;
+    margin-top: 16%;
+    position: fixed;
+    margin-left: 65%;
+}
+
+.text {
+    color: white;
+}
+
+.text2 {
+    color: white;
+}
+
+@keyframes mst {
+    0% {
+        background-color:rgb(123, 72, 241);
+    }
+    50% {
+        background-color:rgb(76, 0, 255);
+    }
+    0% {
+        background-color:rgb(123, 72, 241);
+    }
+}
+
+@keyframes mst2 {
+    0% {
+        background-color:rgb(241, 72, 72);
+    }
+    50% {
+        background-color:rgb(134, 0, 0);
+    }
+    0% {
+        background-color:rgb(241, 72, 72);
+    }
+}

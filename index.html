@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+    function cli22ck() {
+        alert("Site feito por Low_hemog.")
+    }
+
+    function criargota() {
+        const gota = document.createElement('div');
+        gota.classList.add('gota');
+
+        gota.style.left = Math.random() * 100 + 'vw';
+
+        const duracaoanimacao = Math.random() * 2 + 3;
+
+        gota.style.animationDuration = duracaoanimacao + 's';
+
+        gota.addEventListener('animationend', () => {
+            gota.remove();
+        });
+
+        document.body.appendChild(gota)
+    }
+
+    setInterval(criargota, 100)
+    </script>
+    <h3>Site feito por Low-hemog</h3>
+
+    <h1 class="Titulo"> 𝘋𝘪𝘳𝘪𝘱𝘪𝘶𝘴 𝘰𝘧𝘤 </h1>
+    <button class="b1" onclick="window.location.href='index2.html'">Compras</button>
+    <button class="b2" onclick="cli22ck()">Creditos</button>
+    <img class="IMG2" src="Back.png" alt="s">
+    
+</body>
+
+</html>

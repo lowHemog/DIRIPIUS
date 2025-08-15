@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Várias gotas com rastro líquido</title>
+<style>
+  body {
+    margin: 0; height: 100vh; background: #0a0a0a; overflow: hidden; position: relative;
+  }
+  .gota {
+    position: absolute;
+    width: 6px;
+    height: 18px;
+    background: gray;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    filter: drop-shadow(0 0 4px white);
+  }
+  .rastro-pequeno {
+    position: absolute;
+    width: 1px;
+    height: 19px;
+    background: white;
+    border-radius: 50% / 100%;
+    opacity: 0.5;
+    filter: blur(2px);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<script>
+  const corpo = document.body;
+  const numGotas = 10;
+  const gotas = [];
+
+  // Criar gotas com posições e velocidades aleatórias
+  for (let i = 0; i < numGotas; i++) {
+    const gota = document.createElement('div');
+    gota.classList.add('gota')
+    corpo.appendChild(gota);
+
+    gotas.push({
+      el: gota,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * -window.innerHeight, // começam acima da tela
+      velocidade: 2 + Math.random() * 3,
+      rastros: []
+    });
+  }
+
+  function animar() {
+    for (const gota of gotas) {
+      gota.y += gota.velocidade;
+      gota.el.style.left = gota.x + 'px';
+      gota.el.style.top = gota.y + 'px';
+
+      // Criar rastro na posição atual da gota
+      const rastro = document.createElement('div');
+      rastro.classList.add('rastro-pequeno');
+      rastro.style.left = (gota.x + 1) + 'px';
+      rastro.style.top = (gota.y + 10) + 'px';
+      corpo.appendChild(rastro);
+      gota.rastros.push({el: rastro, vida: 30});
+
+      // Atualizar rastros da gota
+      for (let i = gota.rastros.length - 1; i >= 0; i--) {
+        const r = gota.rastros[i];
+        r.vida--;
+        r.el.style.opacity = (r.vida / 30) * 0.5;
+        if (r.vida <= 0) {
+          corpo.removeChild(r.el);
+          gota.rastros.splice(i, 1);
+        }
+      }
+
+      // Resetar gota quando sai da tela
+      if (gota.y > window.innerHeight) {
+        gota.y = -20;
+        gota.x = Math.random() * window.innerWidth;
+      }
+    }
+
+    requestAnimationFrame(animar);
+  }
+
+  animar();
+</script>
+
+</body>
+</html>
